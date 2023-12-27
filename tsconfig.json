@@ -1,0 +1,7 @@
+{
+  "extends": "@mskelton/tsconfig",
+  "compilerOptions": {
+    "noEmit": true
+  },
+  "include": ["src"]
+}

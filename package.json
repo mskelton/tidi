@@ -1,0 +1,48 @@
+{
+  "name": "npm-template",
+  "description": "",
+  "version": "0.0.0-semantically-released",
+  "publishConfig": {
+    "access": "public"
+  },
+  "author": "Mark Skelton",
+  "repository": "github:mskelton/npm-template",
+  "bugs": {
+    "url": "https://github.com/mskelton/npm-template/issues"
+  },
+  "homepage": "https://github.com/mskelton/npm-template#readme",
+  "license": "ISC",
+  "keywords": [],
+  "type": "module",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    "types": "./dist/index.d.ts",
+    "import": "./dist/index.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup src/index.ts --format esm --dts --minify --clean --sourcemap",
+    "lint": "eslint .",
+    "fmt": "prettier --write .",
+    "fmt:check": "prettier --check .",
+    "test": "vitest"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.22.10",
+    "@babel/eslint-parser": "^7.22.10",
+    "@mskelton/eslint-config": "^8.2.1",
+    "@mskelton/tsconfig": "^2.0.0",
+    "@typescript-eslint/eslint-plugin": "^6.4.1",
+    "@typescript-eslint/parser": "^6.4.1",
+    "eslint": "^8.47.0",
+    "eslint-plugin-sort": "^2.10.0",
+    "eslint-plugin-vitest": "^0.2.8",
+    "prettier": "^3.0.2",
+    "semantic-release": "^21.1.0",
+    "tsup": "^7.2.0",
+    "typescript": "^5.1.6",
+    "vitest": "^0.34.2"
+  }
+}
