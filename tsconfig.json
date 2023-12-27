@@ -1,7 +1,10 @@
 {
   "extends": "@mskelton/tsconfig",
   "compilerOptions": {
-    "noEmit": true
+    "emitDeclarationOnly": true,
+    "experimentalDecorators": true,
+    "strictPropertyInitialization": false,
+    "outDir": "dist"
   },
   "include": ["src"]
 }

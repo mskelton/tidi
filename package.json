@@ -1,16 +1,16 @@
 {
-  "name": "npm-template",
-  "description": "",
+  "name": "dixie",
+  "description": "Dead simple dependency injection",
   "version": "0.0.0-semantically-released",
   "publishConfig": {
     "access": "public"
   },
   "author": "Mark Skelton",
-  "repository": "github:mskelton/npm-template",
+  "repository": "github:mskelton/dixie",
   "bugs": {
-    "url": "https://github.com/mskelton/npm-template/issues"
+    "url": "https://github.com/mskelton/dixie/issues"
   },
-  "homepage": "https://github.com/mskelton/npm-template#readme",
+  "homepage": "https://github.com/mskelton/dixie#readme",
   "license": "ISC",
   "keywords": [],
   "type": "module",
@@ -20,14 +20,16 @@
     "import": "./dist/index.js"
   },
   "files": [
-    "dist"
+    "dist",
+    "!dist/*.test.*"
   ],
   "scripts": {
-    "build": "tsup src/index.ts --format esm --dts --minify --clean --sourcemap",
+    "build": "bun build src/index.ts --outdir dist",
     "lint": "eslint .",
     "fmt": "prettier --write .",
     "fmt:check": "prettier --check .",
-    "test": "vitest"
+    "test": "bun test",
+    "ts": "tsc"
   },
   "devDependencies": {
     "@babel/core": "^7.22.10",
@@ -36,13 +38,11 @@
     "@mskelton/tsconfig": "^2.0.0",
     "@typescript-eslint/eslint-plugin": "^6.4.1",
     "@typescript-eslint/parser": "^6.4.1",
+    "@types/bun": "^1.0.0",
     "eslint": "^8.47.0",
     "eslint-plugin-sort": "^2.10.0",
-    "eslint-plugin-vitest": "^0.2.8",
     "prettier": "^3.0.2",
     "semantic-release": "^21.1.0",
-    "tsup": "^7.2.0",
-    "typescript": "^5.1.6",
-    "vitest": "^0.34.2"
+    "typescript": "^5.1.6"
   }
 }
