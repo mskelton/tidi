@@ -26,6 +26,8 @@ jobs:
       - uses: mskelton/setup-bun@v1
       - name: Build
         run: bun run build
+      - name: TypeScript
+        run: bun run ts
       - name: Release
         run: bun semantic-release
         env:
