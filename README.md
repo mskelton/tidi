@@ -1,4 +1,4 @@
-# tidi
+# TiDI
 
 [![Build status](https://github.com/mskelton/tidi/workflows/Build/badge.svg)](https://github.com/mskelton/tidi/actions)
 [![npm version](https://img.shields.io/npm/v/tidi)](https://www.npmjs.com/package/tidi)
@@ -33,10 +33,10 @@ bun add tidi
 
 ## Getting Started
 
-tidi is comprised of two main pieces: containers and injections. The container
-manage bound services and ensures services are only constructed once and used
-everywhere in the container. Injections allow you to use inject dependencies
-into your services.
+TiDI (pronounced "tidy") is comprised of two main pieces: containers and
+injections. The container manage bound services and ensures services are only
+constructed once and used everywhere in the container. Injections allow you to
+use inject dependencies into your services.
 
 The following example shows a basic example of creating a logging service and a
 user service where the user service depends on the logging service.
@@ -67,7 +67,7 @@ application where you created your container. Services themselves should use
 
 ## TypeScript
 
-To use tidi with TypeScript, You'll want to enable the following properties:
+To use TiDI with TypeScript, You'll want to enable the following properties:
 
 ```json
 {
