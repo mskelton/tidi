@@ -1,7 +1,7 @@
-# dixie
+# tidi
 
-[![Build status](https://github.com/mskelton/dixie/workflows/Build/badge.svg)](https://github.com/mskelton/dixie/actions)
-[![npm version](https://img.shields.io/npm/v/dixie)](https://www.npmjs.com/package/dixie)
+[![Build status](https://github.com/mskelton/tidi/workflows/Build/badge.svg)](https://github.com/mskelton/tidi/actions)
+[![npm version](https://img.shields.io/npm/v/tidi)](https://www.npmjs.com/package/tidi)
 
 Dead simple dependency injection.
 
@@ -10,30 +10,30 @@ Dead simple dependency injection.
 ### npm
 
 ```sh
-npm install dixie
+npm install tidi
 ```
 
 ### Yarn
 
 ```sh
-yarn add dixie
+yarn add tidi
 ```
 
 ### pnpm
 
 ```sh
-pnpm add dixie
+pnpm add tidi
 ```
 
 ### bun
 
 ```sh
-bun add dixie
+bun add tidi
 ```
 
 ## Getting Started
 
-Dixie is comprised of two main pieces: containers and injections. The container
+tidi is comprised of two main pieces: containers and injections. The container
 manage bound services and ensures services are only constructed once and used
 everywhere in the container. Injections allow you to use inject dependencies
 into your services.
@@ -67,7 +67,7 @@ application where you created your container. Services themselves should use
 
 ## TypeScript
 
-To use Dixie with TypeScript, You'll want to enable the following properties:
+To use tidi with TypeScript, You'll want to enable the following properties:
 
 ```json
 {

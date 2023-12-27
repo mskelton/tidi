@@ -1,16 +1,16 @@
 {
-  "name": "dixie",
+  "name": "tidi",
   "description": "Dead simple dependency injection",
-  "version": "0.0.0-semantically-released",
+  "version": "0.0.1",
   "publishConfig": {
     "access": "public"
   },
   "author": "Mark Skelton",
-  "repository": "github:mskelton/dixie",
+  "repository": "github:mskelton/tidi",
   "bugs": {
-    "url": "https://github.com/mskelton/dixie/issues"
+    "url": "https://github.com/mskelton/tidi/issues"
   },
-  "homepage": "https://github.com/mskelton/dixie#readme",
+  "homepage": "https://github.com/mskelton/tidi#readme",
   "license": "ISC",
   "keywords": [],
   "type": "module",

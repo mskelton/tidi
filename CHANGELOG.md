@@ -2,4 +2,4 @@
 
 The changelog is automatically updated using
 [semantic-release](https://github.com/semantic-release/semantic-release). You
-can see it on the [releases page](https://github.com/mskelton/dixie/releases).
+can see it on the [releases page](https://github.com/mskelton/tidi/releases).
