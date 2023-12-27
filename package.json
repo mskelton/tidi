@@ -1,7 +1,7 @@
 {
   "name": "tidi",
   "description": "Dead simple dependency injection",
-  "version": "0.0.1",
+  "version": "0.0.0-semantically-released",
   "publishConfig": {
     "access": "public"
   },
