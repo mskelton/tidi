@@ -1,11 +1,15 @@
 import { expect, test } from "bun:test"
-import { Container, Inject } from "./index.js"
+import { Container, Inject, Injectable } from "./index.js"
 
 test("should bind services", () => {
   const container = new Container()
+
+  @Injectable
   class Foo {
     type = "foo"
   }
+
+  @Injectable
   class Bar {
     type = "bar"
   }
@@ -22,6 +26,7 @@ test("should re-use constructed instances", () => {
   let fooCount = 0
   let barCount = 0
 
+  @Injectable
   class Foo {
     type = "foo"
 
@@ -30,6 +35,7 @@ test("should re-use constructed instances", () => {
     }
   }
 
+  @Injectable
   class Bar {
     type = "bar"
 
@@ -52,11 +58,13 @@ test("should re-use constructed instances", () => {
 test("supports dependencies", () => {
   const container = new Container()
 
+  @Injectable
   class Foo {
     @Inject("bar") public bar: Bar
     type = "foo"
   }
 
+  @Injectable
   class Bar {
     type = "bar"
   }
@@ -71,11 +79,13 @@ test("supports dependencies", () => {
 test("supports circular dependencies", () => {
   const container = new Container()
 
+  @Injectable
   class Foo {
     @Inject("bar") public bar: Bar
     type = "foo"
   }
 
+  @Injectable
   class Bar {
     @Inject("foo") public foo: Foo
     type = "bar"
@@ -91,15 +101,18 @@ test("supports circular dependencies", () => {
 test("supports nested dependencies", () => {
   const container = new Container()
 
+  @Injectable
   class Foo {
     type = "foo"
   }
 
+  @Injectable
   class Bar {
     @Inject("foo") public two: Foo
     type = "bar"
   }
 
+  @Injectable
   class Baz {
     @Inject("bar") public three: Bar
     type = "baz"
@@ -118,12 +131,14 @@ test("supports nested dependencies", () => {
 test("accessing services", () => {
   const container = new Container()
 
+  @Injectable
   class Foo {
     add(x: number, y: number) {
       return x + y
     }
   }
 
+  @Injectable
   class Bar {
     @Inject("foo") public foo: Foo
 

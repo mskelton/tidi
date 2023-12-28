@@ -1,13 +1,15 @@
-import { CONTAINER_SYM } from "./Container.js"
+import { INJECTED } from "./symbols.js"
 
+/** Inject a dependency with the given service name to the class property. */
 export function Inject(name: string) {
   return function (target: any, key: string): any {
-    Reflect.defineProperty(target, key, {
-      get() {
-        // The container is stored in the prototype chain of the class. This is
-        // done when resolving services in the container.
-        return this[CONTAINER_SYM].get(name)
-      },
-    })
+    // Sadly due to the current nature of decorators, we have to store a map of
+    // dependencies to inject on the target class. This will improve when
+    // JavaScript decorators are standardized.
+    //
+    // Also good to note that for some reason using a Map here causes issues, so
+    // a plain object is used instead.
+    target[INJECTED] ??= {}
+    target[INJECTED][key] = name
   }
 }

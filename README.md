@@ -42,10 +42,13 @@ The following example shows a basic example of creating a logging service and a
 user service where the user service depends on the logging service.
 
 ```ts
+import { Container, Inject, Injectable } from "tidi"
+
 const container = new Container()
 
 class LoggingService {}
 
+@Injectable
 class UserService {
   @Inject("LoggingService") private loggingService: LoggingService
 }
@@ -90,10 +93,12 @@ Yes! While not something I would recommend, circular dependencies between
 services is totally supported.
 
 ```ts
+@Injectable
 class UserService {
   @Inject("PaymentService") public paymentService: PaymentService
 }
 
+@Injectable
 class PaymentService {
   @Inject("UserService") public userService: UserService
 }

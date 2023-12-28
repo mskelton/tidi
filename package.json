@@ -24,12 +24,11 @@
     "!dist/*.test.*"
   ],
   "scripts": {
-    "build": "bun build src/index.ts --outdir dist",
+    "build": "tsc",
     "lint": "eslint .",
     "fmt": "prettier --write .",
     "fmt:check": "prettier --check .",
-    "test": "bun test",
-    "ts": "tsc"
+    "test": "bun test"
   },
   "devDependencies": {
     "@babel/core": "^7.22.10",
