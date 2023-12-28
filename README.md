@@ -38,7 +38,7 @@ bun add tidi
 
 ## Getting Started
 
-TiDI (pronounced "tidy") is comprised of two main pieces: containers and
+TiDI (pronounced "tie dye") is comprised of two main pieces: containers and
 injections. The container manage bound services and ensures services are only
 constructed once and used everywhere in the container. Injections allow you to
 use inject dependencies into your services.
