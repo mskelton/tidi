@@ -73,6 +73,25 @@ Keep in mind that the `get` method should only be used in the root of your
 application where you created your container. Services themselves should use
 `@Inject` to inject other services.
 
+### Constructor Injection
+
+In certain cases, you may need to access injected services in the constructor.
+To support this, you can use constructor injection.
+
+```ts
+@Injectable
+class UserService {
+  constructor(
+    @Inject("LoggingService") private loggingService: LoggingService,
+  ) {
+    this.loggingService.log("In the constructor!")
+  }
+}
+```
+
+Both injection types are supported simultaneously, so you can mix and match in
+the same class!
+
 ## TypeScript
 
 To use TiDI with TypeScript, You'll want to enable the following properties:
@@ -90,21 +109,11 @@ Setting `strictPropertyInitialization=false` is not necessarily required, but it
 is highly recommended to prevent you from needing to type cast usages of
 `@Inject`.
 
-## FAQs
+## FAQ
 
 ### Are Circular Dependencies Supported?
 
-Yes! While not something I would recommend, circular dependencies between
-services is totally supported.
-
-```ts
-@Injectable
-class UserService {
-  @Inject("PaymentService") public paymentService: PaymentService
-}
-
-@Injectable
-class PaymentService {
-  @Inject("UserService") public userService: UserService
-}
-```
+I really would like to support circular dependencies, but supporting them in a
+way that doesn't have a pile of caveats is not worth it for this library given
+the focus on simplicity and small size. It maybe supported in the future, but
+for now it is not.
