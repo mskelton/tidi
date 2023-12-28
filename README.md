@@ -31,6 +31,11 @@ pnpm add tidi
 bun add tidi
 ```
 
+## Why TiDI?
+
+- It's small, ridiculously small (~600B minified)
+- Designed specifically for classes, it's easy to understand and use
+
 ## Getting Started
 
 TiDI (pronounced "tidy") is comprised of two main pieces: containers and

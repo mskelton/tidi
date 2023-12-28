@@ -13,10 +13,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: mskelton/setup-bun@v1
-        # Running a build first to also test the compiled output which has the
-        # decorator polyfill code.
+        # Build the test file to ensure it works with the polyfilled decorator code
       - name: Build
-        run: bun run build
+        run: bun build:test
       - name: Test
         run: bun test
   release:

@@ -20,11 +20,11 @@
     "import": "./dist/index.js"
   },
   "files": [
-    "dist",
-    "!dist/*.test.*"
+    "dist"
   ],
   "scripts": {
-    "build": "tsc",
+    "build": "tsup src/index.ts --format esm --dts",
+    "build:test": "tsup **/*.test.ts --format esm --external 'bun:test'",
     "lint": "eslint .",
     "fmt": "prettier --write .",
     "fmt:check": "prettier --check .",
@@ -35,13 +35,14 @@
     "@babel/eslint-parser": "^7.22.10",
     "@mskelton/eslint-config": "^8.2.1",
     "@mskelton/tsconfig": "^2.0.0",
+    "@types/bun": "^1.0.0",
     "@typescript-eslint/eslint-plugin": "^6.4.1",
     "@typescript-eslint/parser": "^6.4.1",
-    "@types/bun": "^1.0.0",
     "eslint": "^8.47.0",
     "eslint-plugin-sort": "^2.10.0",
     "prettier": "^3.0.2",
     "semantic-release": "^21.1.0",
+    "tsup": "^8.0.1",
     "typescript": "^5.1.6"
   }
 }
