@@ -1,1 +1,2 @@
-export const INJECTED = Symbol("injected")
+export const PROPERTIES = Symbol()
+export const PARAMETERS = Symbol()
