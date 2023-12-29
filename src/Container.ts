@@ -1,3 +1,5 @@
+import { NAME } from "./symbols.js"
+
 export type Service = new (...args: any) => any
 
 export class Container {
@@ -5,8 +7,10 @@ export class Container {
   private services: Record<string, any> = {}
 
   /** Bind a class in the IOC container. */
-  bind(name: string, service: Service) {
-    this.bound[name] = service
+  bind(...services: Service[]) {
+    for (const service of services) {
+      this.bound[(service as any)[NAME]] = service
+    }
   }
 
   /** Get a service from the IOC container. */
