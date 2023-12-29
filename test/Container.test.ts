@@ -1,5 +1,5 @@
 import { describe, expect, test } from "bun:test"
-import { Container, Inject, Injectable } from "./index.js"
+import { Container, Inject, Injectable } from "../lib/index.js"
 
 test("should bind services", () => {
   const container = new Container()

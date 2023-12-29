@@ -23,8 +23,8 @@
     "dist"
   ],
   "scripts": {
-    "build": "tsup src/index.ts --format esm --dts",
-    "build:test": "tsup **/*.test.ts --format esm --external 'bun:test'",
+    "build:test": "bun build **/*.test.ts --outdir dist --external 'bun:test'",
+    "bytes": "bun build lib/index.js --minify | wc -c | xargs | sed 's/$/ bytes/'",
     "lint": "eslint .",
     "fmt": "prettier --write .",
     "fmt:check": "prettier --check .",
@@ -42,7 +42,6 @@
     "eslint-plugin-sort": "^2.10.0",
     "prettier": "^3.0.2",
     "semantic-release": "^21.1.0",
-    "tsup": "^8.0.1",
     "typescript": "^5.1.6"
   }
 }

@@ -6,5 +6,5 @@
     "strictPropertyInitialization": false,
     "outDir": "dist"
   },
-  "include": ["src"]
+  "include": ["test"]
 }

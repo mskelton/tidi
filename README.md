@@ -33,7 +33,7 @@ bun add tidi
 
 ## Why TiDI?
 
-- It's small, ridiculously small (~600B minified)
+- It's small, ridiculously small (<600B minified)
 - Designed specifically for classes, it's easy to understand and use
 
 ## Getting Started
