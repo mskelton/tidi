@@ -1,15 +1,15 @@
 import { describe, expect, test } from "bun:test"
-import { Container, Inject, Injectable } from "../lib/index.js"
+import { Container, inject, injectable } from "../lib/index.js"
 
 test("should bind services", () => {
   const container = new Container()
 
-  @Injectable("foo")
+  @injectable("foo")
   class Foo {
     type = "foo"
   }
 
-  @Injectable("bar")
+  @injectable("bar")
   class Bar {
     type = "bar"
   }
@@ -26,7 +26,7 @@ test("should re-use constructed instances", () => {
   let fooCount = 0
   let barCount = 0
 
-  @Injectable("foo")
+  @injectable("foo")
   class Foo {
     type = "foo"
 
@@ -35,7 +35,7 @@ test("should re-use constructed instances", () => {
     }
   }
 
-  @Injectable("bar")
+  @injectable("bar")
   class Bar {
     type = "bar"
 
@@ -57,13 +57,13 @@ describe("properties", () => {
   test("supports dependencies", () => {
     const container = new Container()
 
-    @Injectable("foo")
+    @injectable("foo")
     class Foo {
-      @Inject("bar") public bar: Bar
+      @inject("bar") public bar: Bar
       type = "foo"
     }
 
-    @Injectable("bar")
+    @injectable("bar")
     class Bar {
       type = "bar"
     }
@@ -78,20 +78,20 @@ describe("properties", () => {
   test("supports nested dependencies", () => {
     const container = new Container()
 
-    @Injectable("foo")
+    @injectable("foo")
     class Foo {
       type = "foo"
     }
 
-    @Injectable("bar")
+    @injectable("bar")
     class Bar {
-      @Inject("foo") public two: Foo
+      @inject("foo") public two: Foo
       type = "bar"
     }
 
-    @Injectable("baz")
+    @injectable("baz")
     class Baz {
-      @Inject("bar") public three: Bar
+      @inject("bar") public three: Bar
       type = "baz"
     }
 
@@ -105,16 +105,16 @@ describe("properties", () => {
   test("accessing services", () => {
     const container = new Container()
 
-    @Injectable("foo")
+    @injectable("foo")
     class Foo {
       add(x: number, y: number) {
         return x + y
       }
     }
 
-    @Injectable("bar")
+    @injectable("bar")
     class Bar {
-      @Inject("foo") public foo: Foo
+      @inject("foo") public foo: Foo
 
       doAdd() {
         return this.foo.add(1, 2)
@@ -130,13 +130,13 @@ describe("constructor params", () => {
   test("supports dependencies", () => {
     const container = new Container()
 
-    @Injectable("foo")
+    @injectable("foo")
     class Foo {
       type = "foo"
-      constructor(@Inject("bar") public bar: Bar) {}
+      constructor(@inject("bar") public bar: Bar) {}
     }
 
-    @Injectable("bar")
+    @injectable("bar")
     class Bar {
       type = "bar"
     }
@@ -149,21 +149,21 @@ describe("constructor params", () => {
   test("supports nested dependencies", () => {
     const container = new Container()
 
-    @Injectable("foo")
+    @injectable("foo")
     class Foo {
       type = "foo"
     }
 
-    @Injectable("bar")
+    @injectable("bar")
     class Bar {
       type = "bar"
-      constructor(@Inject("foo") public two: Foo) {}
+      constructor(@inject("foo") public two: Foo) {}
     }
 
-    @Injectable("baz")
+    @injectable("baz")
     class Baz {
       type = "baz"
-      constructor(@Inject("bar") public three: Bar) {}
+      constructor(@inject("bar") public three: Bar) {}
     }
 
     container.bind(Foo, Bar, Baz)
@@ -176,16 +176,16 @@ describe("constructor params", () => {
   test("accessing services", () => {
     const container = new Container()
 
-    @Injectable("foo")
+    @injectable("foo")
     class Foo {
       add(x: number, y: number) {
         return x + y
       }
     }
 
-    @Injectable("bar")
+    @injectable("bar")
     class Bar {
-      constructor(@Inject("foo") public foo: Foo) {}
+      constructor(@inject("foo") public foo: Foo) {}
 
       doAdd() {
         return this.foo.add(1, 2)

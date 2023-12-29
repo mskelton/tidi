@@ -47,31 +47,31 @@ The following example shows a basic example of creating a logging service and a
 user service where the user service depends on the logging service.
 
 ```ts
-import { Container, Inject, Injectable } from "tidi"
+import { Container, inject, injectable } from "tidi"
 
 const container = new Container()
 
+@injectable("userService")
 class LoggingService {}
 
-@Injectable
+@injectable("userService")
 class UserService {
-  @Inject("LoggingService") private loggingService: LoggingService
+  @inject("loggingService") private loggingService: LoggingService
 }
 
-container.bind("LoggingService", LoggingService)
-container.bind("UserService", UserService)
+container.bind(LoggingService, UserService)
 ```
 
 With the container created and services bound, we can now get a services from
 the IOC container using the `get` method.
 
 ```ts
-const userService = container.get<UserService>("UserService")
+const userService = container.get<UserService>("userService")
 ```
 
 Keep in mind that the `get` method should only be used in the root of your
 application where you created your container. Services themselves should use
-`@Inject` to inject other services.
+`@inject` to inject other services.
 
 ### Constructor Injection
 
@@ -79,10 +79,10 @@ In certain cases, you may need to access injected services in the constructor.
 To support this, you can use constructor injection.
 
 ```ts
-@Injectable
+@injectable("userService")
 class UserService {
   constructor(
-    @Inject("LoggingService") private loggingService: LoggingService,
+    @inject("loggingService") private loggingService: LoggingService,
   ) {
     this.loggingService.log("In the constructor!")
   }
@@ -107,7 +107,7 @@ To use TiDI with TypeScript, You'll want to enable the following properties:
 
 Setting `strictPropertyInitialization=false` is not necessarily required, but it
 is highly recommended to prevent you from needing to type cast usages of
-`@Inject`.
+`@inject`.
 
 ## FAQ
 
