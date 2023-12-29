@@ -12,7 +12,11 @@
   },
   "homepage": "https://github.com/mskelton/tidi#readme",
   "license": "ISC",
-  "keywords": [],
+  "keywords": [
+    "dependency-injection",
+    "di",
+    "ioc"
+  ],
   "type": "module",
   "types": "./dist/index.d.ts",
   "exports": {
