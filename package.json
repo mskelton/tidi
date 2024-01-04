@@ -18,13 +18,13 @@
     "ioc"
   ],
   "type": "module",
-  "types": "./dist/index.d.ts",
+  "types": "./lib/index.d.ts",
   "exports": {
-    "types": "./dist/index.d.ts",
-    "import": "./dist/index.js"
+    "types": "./lib/index.d.ts",
+    "import": "./lib/index.js"
   },
   "files": [
-    "dist"
+    "lib"
   ],
   "scripts": {
     "build:test": "bun build **/*.test.ts --outdir dist --external 'bun:test'",
